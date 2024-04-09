@@ -1,22 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+import React from 'react';
+import {NavigationContainer} from "@react-navigation/native";
+import {createNativeStackNavigation} from "@react-navigation/native-stack";
+import {Home} from './src/components/Home';
+import {Details} from './src/components/Details';
+
+
+const App = () => {
+
+  const Stack = createNativeStackNavigation();
+
   return (
-    <View style={styles.container}>
-      <Text>BIENVENIDOS A NUESTRO SITIO DE IMPRESIONES 3DGIT ADD .
-        
-      </Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="home" component={Home}/>
+        <Stack.Screen name="home" component={Details}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
+
